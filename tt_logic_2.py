@@ -2,6 +2,9 @@
 # Agent logic — LangChain version with tools and RAG
 # pip install langchain langchain-openai langchain-community faiss-cpu pdfplumber python-dotenv
 import os
+import streamlit as st
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
 import io
 import pdfplumber
 #from dotenv import load_dotenv
@@ -16,9 +19,6 @@ from termstrust_tools import fetch_terms_from_url, check_data_breach
 
 # load environment variables from .env file
 #load_dotenv()
-
-import streamlit as st
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 # ── model setup ───────────────────────────────────────────────────────────────
 MODEL_LLM = "openai:gpt-4o-mini"
