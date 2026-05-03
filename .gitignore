@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment & secrets
+.env
+.streamlit/secrets.toml
+.streamlit/
+
+# Virtual environment
+.venv/
+
+# RAG source files
+rag_files/
+tt_logic_1.py
+
+# FAISS index
+faiss_index/
+
+# Build script
+build_faiss_index.py
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/
+# PyCharm
+.idea/
+
+# Mac
+.DS_Store
