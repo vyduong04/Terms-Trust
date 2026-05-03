@@ -22,14 +22,14 @@ from termstrust_tools import fetch_terms_from_url, check_data_breach
 
 # ── model setup ───────────────────────────────────────────────────────────────
 MODEL_LLM = "openai:gpt-4o-mini"
-MODEL = init_chat_model(MODEL_LLM, temperature=0.3)
+MODEL = init_chat_model(MODEL_LLM, temperature=0.3, api_key=st.secrets["OPENAI_API_KEY"])
 # lower temperature = more consistent, factual responses (better for legal analysis)
 
 # ── RAG setup ─────────────────────────────────────────────────────────────────
 # load the FAISS vector index built by build_faiss_index.py
 # this index contains the embedded chunks of the legal frameworks RAG document
 # (same pattern as Scout_step_5.py)
-embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])
 vectorstore = FAISS.load_local(
     "faiss_index",
     embeddings,
